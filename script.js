@@ -23,9 +23,14 @@ const showRecipes = (data) => {
   recipeHits.forEach((hit) => {
     recipesSection.innerHTML += `
     <div class="recipe-card">
-      <img src="${hit.recipe.image}"/>
-      <h3>${hit.recipe.label}</h3>
-      <p>${hit.recipe.totalTime} min</p>
+      <div class="img-container">
+        <img src="${hit.recipe.image}"/>
+      </div>
+      <div class="caption">
+        <h3>${hit.recipe.label}</h3>
+        <p>${hit.recipe.totalTime} min</p>
+      </div>
+    </div>
     `
   })
 }

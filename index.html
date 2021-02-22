@@ -6,36 +6,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
   
+    <!-- TOP BAR -->
   <header>
-
+    <nav class="navigation-container">
+      <div class="navigation-flex-left">
+        <img class="navigation-img-details" src="assets/foodora.png"/>
+      </div>
+      <div class=navigation-flex-right>
+        <div class="language-container">
+          <a class="language-active" href="">SV</a> <!-- To indicate whitch option that is chosen -->
+          <a class="" href="">EN</a>
+        </div>
+        <div class="account-container">
+          <img class="navigation-img-details" src="assets/account-icon.png" alt="account icon">
+        </div>
+        <div class="print-container">
+          <img class="navigation-img-details" src="assets/printer.png">
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <section id="search-section" class="search-section">
-    <form>
-      <input id="search-field" class="search-field" type="text">
-      <input id="cooking-time" class="cooking-time" type="range" min="10" max="120" value="60">
-      <select id="cuisine-dropdown" class="cuisine-dropdown">
-        <option value="american">American</option>
-        <option value="asian">Asian</option>
-        <option value="french">French</option>
-        <option value="nordic">Nordic</option>
-        <option value="italian">Italian</option>
-        <option value="indian">Indian</option>
-        <option value="mediterranean">Mediterranean</option>
-        <option value="caribbean">Caribbean</option>
-        <option value="mexican">Mexican</option>
-        <option value="middle-eastern">Middle Eastern</option>
-      </select>
-      <input type="submit">
+  <!-- HERO SECTION -->
+  <section id="search-section" class="hero">
+
+    <picture>
+      <source srcset="assets/hero-mobile.jpg" media="(max-width: 767px)"/>
+      <img class="hero-img" src="assets/hero-big.jpg" alt="Sweet Potato Fries Bowl" />
+    </picture>
+
+    <div class="top-layer">
+
+    <h1 class="heading">Over 1000+ delicious recipes from all over the world...</h1>
+
+    <form class="form">
+      <div class="form-fields">
+        <label for="search-field">Search here</label>
+        <input id="search-field" class="search-field" type="text">
+      </div>
+      <div class="form-fields">  
+        <label for="cooking-time">Cooking time: <span id="cookingTimeValue"></span></label> <!-- Write script to connect value to print here -->
+        <input id="cooking-time" class="cooking-time" type="range" min="10" max="120" value="60">
+      </div>
+      <div class="form-fields">
+        <label for="cuisine-dropdown">What cuisine?</label>
+        <select id="cuisine-dropdown" class="cuisine-dropdown">
+          <option value="american">American</option>
+          <option value="asian">Asian</option>
+          <option value="french">French</option>
+          <option value="nordic">Nordic</option>
+          <option value="italian">Italian</option>
+          <option value="indian">Indian</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="caribbean">Caribbean</option>
+          <option value="mexican">Mexican</option>
+          <option value="middle-eastern">Middle Eastern</option>
+        </select>
+      </div>
+      <button id=“submit-button” class=“submit-button” type=“submit”>Send</button>
     </form>
-  </section>
-
-  <section id="recipes-section" class="recipes-section">
 
   </section>
+
+  <!-- RECIPE SECTION -->
+  <section id="recipes-section" class="recipes-section"></section>
+
+<!-- FOOTER -->
+<footer>
+
+</footer>
 
   <script src="dummy-data.js"></script>
   <script src="script.js"></script>

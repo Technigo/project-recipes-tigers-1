@@ -1,0 +1,152 @@
+:root {
+    --primary: #D72466;
+    --secondary: #276FBF;
+  }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+/* NAVIGATION SECTION */
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-flex-left {
+    display: flex;
+    justify-content: start;
+}
+
+.navigation-flex-right {
+    display: flex;
+    justify-content: space-around;
+}
+
+.account-contianer {
+  margin-left: 15px;
+}
+
+.language-contianer .account-container .print-container {
+    margin-left: 15px;
+}
+
+.navigation-img-details {
+    height: 25px;
+}
+
+.language-active{
+    font-weight: 700;
+    padding-right: 10px;
+    border-right: black 1px solid;
+}
+
+.hero {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img {
+  object-fit: cover;
+  width: 100vw;
+  height: 50vh;
+}
+
+.top-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  color: var(--primary)
+}
+
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2); 
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: var(--primary);
+  margin-top: 30px;
+  padding: 4px 6px 4px 6px;
+  width: 120px;
+  font-family: inherit;
+  font-size: 14px;
+  color: white;
+  border-radius: 3px;
+  align-self: center;
+  border: none;
+}
+
+/* RECIPE SECTION */
+
+.recipes-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.recipe-card {
+  justify-content: center;
+  margin: 10px 12px 40px;
+  width: 300px;
+  height: 200px;
+}
+
+.img-container {
+  overflow: hidden; 
+  width: 100%;
+  height: 90%;
+}
+
+.img-container img {
+  transition: 0.5s all ease-in-out; 
+  width: 100%;
+}
+
+.img-container img:hover {
+  transform: scale(1.2);
+}
+
+.caption h3 {
+  font-size: 16px;
+  padding: 4px 16px 0 0; 
+  margin: 0;
+}
+
+.caption p {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: #707070;
+}
