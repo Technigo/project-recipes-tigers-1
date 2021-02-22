@@ -14,6 +14,7 @@ body {
 .navigation-container {
     display: flex;
     justify-content: space-between;
+    
 }
 
 .navigation-flex-left {
@@ -23,19 +24,19 @@ body {
 
 .navigation-flex-right {
     display: flex;
-    justify-content: space-around;
-}
-
-.account-contianer {
-  margin-left: 15px;
+    justify-content: end;
 }
 
 .language-contianer .account-container .print-container {
-    margin-left: 15px;
+    margin: 15px;
 }
 
 .navigation-img-details {
     height: 25px;
+}
+
+.language-container {
+    font-size: 15px;
 }
 
 .language-active{
@@ -43,6 +44,8 @@ body {
     padding-right: 10px;
     border-right: black 1px solid;
 }
+
+
 
 .hero {
   position: relative;
