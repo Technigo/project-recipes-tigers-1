@@ -4,6 +4,15 @@ const searchField = document.getElementById('search-field')
 const searchButton = document.getElementById('submit-button')
 const cookingTimeField = document.getElementById('cooking-time')
 const cuisineDropdown = document.getElementById('cuisine-dropdown')
+const cookingTimeSpan = document.getElementById('cookingTimeValue')
+
+
+
+const showCookingValue = () => {
+  cookingTimeSpan.innerHTML = `${cookingTimeField.value} min`
+}
+
+
 
 const showResults = (event) => {
     if (event) {
@@ -13,8 +22,6 @@ const showResults = (event) => {
     const search = searchField.value
     const cookingTime = cookingTimeField.value
     const cuisineChoice = cuisineDropdown.value
-
-    console.log(cuisineChoice)
 
     const RECIPES_API = `https://api.edamam.com/search?q=${cuisineChoice}%20${search}&app_id=a528066f&app_key=ed096ed16c57eb7ed215b507030aae8c&from=0&to=10&time=10-${cookingTime}`
 
@@ -27,6 +34,7 @@ const showResults = (event) => {
         })
 
 }
+
 
 const showRecipes = (data) => {
 
@@ -49,14 +57,14 @@ const showRecipes = (data) => {
     })
 }
 
-const viewRecipe = (data) => {
+/*const viewRecipe = (data) => {
     recipesSection.innerHTML = ''
 
     recipesSection.innerHTML += `
   <h1>${data.}
   `
 
-}
+}*/
 
 showResults()
 

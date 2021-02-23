@@ -51,7 +51,7 @@
       </div>
       <div class="form-fields">  
         <label for="cooking-time">Cooking time: <span id="cookingTimeValue"></span></label> <!-- Write script to connect value to print here -->
-        <input id="cooking-time" class="cooking-time" type="range" min="10" max="120" value="60">
+        <input id="cooking-time" class="cooking-time" type="range" min="10" max="120" oninput="showCookingValue()" value="60">
       </div>
       <div class="form-fields">
         <label for="cuisine-dropdown">What cuisine?</label>
