@@ -3,35 +3,39 @@ const recipesSection = document.getElementById('recipes-section')
 const searchField = document.getElementById('search-field')
 const searchButton = document.getElementById('submit-button')
 const cookingTimeField = document.getElementById('cooking-time')
+const cuisineDropdown = document.getElementById('cuisine-dropdown')
 
 const showResults = (event) => {
-  if (event) {
-    event.preventDefault()
-  } 
-  console.log(event)
-  const search = searchField.value
-  const cookingTime = cookingTimeField.value
-  console.log(search, cookingTime)
-  const RECIPES_API = `https://api.edamam.com/search?q=${search}&app_id=a528066f&app_key=ed096ed16c57eb7ed215b507030aae8c&from=0&to=10&time=${cookingTime}`
+    if (event) {
+        event.preventDefault()
+    }
 
-  fetch(RECIPES_API)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => {
-      showRecipes(data)
-    })
-    
+    const search = searchField.value
+    const cookingTime = cookingTimeField.value
+    const cuisineChoice = cuisineDropdown.value
+
+    console.log(cuisineChoice)
+
+    const RECIPES_API = `https://api.edamam.com/search?q=${cuisineChoice}%20${search}&app_id=a528066f&app_key=ed096ed16c57eb7ed215b507030aae8c&from=0&to=10&time=10-${cookingTime}`
+
+    fetch(RECIPES_API)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            showRecipes(data)
+        })
+
 }
-
-showResults()
 
 const showRecipes = (data) => {
 
-  const recipeHits = data.hits 
 
-  recipeHits.forEach((hit) => {
-    recipesSection.innerHTML += `
+    const recipeHits = data.hits
+    recipesSection.innerHTML = ''
+
+    recipeHits.forEach((hit) => {
+        recipesSection.innerHTML += `
     <div class="recipe-card">
       <div class="img-container">
         <img src="${hit.recipe.image}"/>
@@ -42,10 +46,20 @@ const showRecipes = (data) => {
       </div>
     </div>
     `
-  })
+    })
 }
 
+const viewRecipe = (data) => {
+    recipesSection.innerHTML = ''
 
-console.log(searchButton)
-searchSection.addEventListener('submit',(event) => showResults(event))
-//document.querySelectorAll('recipe-card').addEventListener('click' )
+    recipesSection.innerHTML += `
+  <h1>${data.}
+  `
+
+}
+
+showResults()
+
+searchSection.addEventListener('change', showResults)
+searchSection.addEventListener('submit', (event) => showResults(event))
+recipesSection.addEventListener('click', viewRecipe(data))
