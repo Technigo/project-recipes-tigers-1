@@ -12,25 +12,25 @@
 <body>
   
     <!-- TOP BAR -->
-  <header>
-    <nav class="navigation-container">
-      <div class="navigation-flex-left">
-        <img class="navigation-img-details" src="assets/foodora.png"/>
+
+  <nav class="navigation-container">
+    <div class="navigation-flex-left">
+      <img class="navigation-logo" src="assets/foodora.png"/>
+    </div>
+    <div class="navigation-flex-right">
+      <div class="language-container">
+        <a class="language-active" href="">SV</a> <!-- To indicate whitch option that is chosen -->
+        <a class="" href="">EN</a>
       </div>
-      <div class="navigation-flex-right">
-        <div class="language-container">
-          <a class="language-active" href="">SV</a> <!-- To indicate whitch option that is chosen -->
-          <a class="" href="">EN</a>
-        </div>
-        <div class="account-container">
-          <img class="navigation-img-details" src="assets/account-icon.png" alt="account icon">
-        </div>
-        <div class="print-container">
-          <img class="navigation-img-details" src="assets/printer.png">
-        </div>
+      <div class="account-container">
+        <img class="navigation-img-details" src="assets/account-icon.png" alt="account icon">
       </div>
-    </nav>
-  </header>
+      <div class="print-container">
+        <img class="navigation-img-details" src="assets/printer.png">
+      </div>
+    </div>
+  </nav>
+
 
   <!-- HERO SECTION -->
   <section id="search-section" class="hero">
@@ -74,7 +74,32 @@
   </section>
 
   <!-- RECIPE SECTION -->
+  <h3 class="recipe-header">A selection of recipes</h3>
+
   <section id="recipes-section" class="recipes-section"></section>
+
+<!-- RECIPE PAGE -->
+<section id="recipe-page" class="recipe-page">
+  <div id="recipe-page-header" class="recipe-page-header">
+    <!-- <h1>current recipe label</h1> -->
+    <!-- <p>current recipe cooking time Min</p>-->
+  </div>
+  <div class="recipe-info">
+    <div class="ingredients-container">
+    <h4>Ingredients</h4>
+    <ul id="ingredients" class="ingredients">
+     <!-- Here goes ingredients from current recipe in a <li> for each --> 
+    </ul>
+  </div>
+  <div class="instructions-container">
+    <h4>Instructions</h4>
+    <ol id="instructions" class="instructions">
+      <!-- Here goes instructions from current recipe in a <li> for each --> 
+    </ol>
+  </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer>
