@@ -8,6 +8,9 @@ const cookingTimeSpan = document.getElementById('cookingTimeValue')
 const recipePageHeader = document.getElementById('recipe-page-header')
 const recipeIngredients = document.getElementById('ingredients')
 const recipeInstructions = document.getElementById('instructions')
+const recipePage = document.getElementById('recipe-page')
+const recipeHeader = document.getElementById('recipe-header')
+const recipeImg = document.getElementById('recipe-img')
 
 
 const showCookingValue = () => {
@@ -37,10 +40,9 @@ const showResults = (event) => {
 
 const showRecipes = (data) => {
 
-
     const recipeHits = data.hits
     recipesSection.innerHTML = ''
-
+    
     recipeHits.forEach((hit) => {
         recipesSection.innerHTML += `
     <div id="${hit.recipe.uri}"class="recipe-card">
@@ -65,6 +67,10 @@ const showRecipes = (data) => {
 
 const viewRecipe = (recipeId) => {
 
+  recipesSection.innerHTML = ''
+  recipePage.classList.add('show')
+  recipeHeader.classList.add('hide')
+
   const CURRENT_RECIPE_API = `https://api.edamam.com/search?app_id=a528066f&app_key=ed096ed16c57eb7ed215b507030aae8c&r=${encodeURIComponent(recipeId)}`
 
   fetch(CURRENT_RECIPE_API)
@@ -72,23 +78,21 @@ const viewRecipe = (recipeId) => {
             return response.json()
         })
         .then((data) => {
-          const ingredients = data.ingredientLines
+          const ingredients = data[0].ingredientLines
           
-          console.log(ingredients)
-          
-        
           recipePageHeader.innerHTML = `
           <h1>${data[0].label}</h1>
           <p>Cooking time: ${cookingTimeField.value}</p>
+          `
+          recipeImg.innerHTML += `
+          <img src="${data[0].image}">
           `
           ingredients.forEach((ingredient) => {
             recipeIngredients.innerHTML +=
             `<li>${ingredient}</li>`
           })
-          
-        
-        
-            console.log(data)
+          recipeInstructions.innerHTML += `<a href="${data[0].url}">For instructions please click here</a> `
+      
         })
 
 
@@ -99,4 +103,3 @@ showResults()
 
 searchSection.addEventListener('change', showResults)
 searchSection.addEventListener('submit', (event) => showResults(event))
-//recipesSection.addEventListener('click')
