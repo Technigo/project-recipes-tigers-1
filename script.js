@@ -5,14 +5,14 @@ const searchButton = document.getElementById('submit-button')
 const cookingTimeField = document.getElementById('cooking-time')
 const cuisineDropdown = document.getElementById('cuisine-dropdown')
 const cookingTimeSpan = document.getElementById('cookingTimeValue')
-
+const recipePageHeader = document.getElementById('recipe-page-header')
+const recipeIngredients = document.getElementById('ingredients')
+const recipeInstructions = document.getElementById('instructions')
 
 
 const showCookingValue = () => {
   cookingTimeSpan.innerHTML = `${cookingTimeField.value} min`
 }
-
-
 
 const showResults = (event) => {
     if (event) {
@@ -35,7 +35,6 @@ const showResults = (event) => {
 
 }
 
-
 const showRecipes = (data) => {
 
 
@@ -44,7 +43,7 @@ const showRecipes = (data) => {
 
     recipeHits.forEach((hit) => {
         recipesSection.innerHTML += `
-    <div class="recipe-card">
+    <div id="${hit.recipe.uri}"class="recipe-card">
       <div class="img-container">
         <img src="${hit.recipe.image}"/>
       </div>
@@ -55,19 +54,49 @@ const showRecipes = (data) => {
     </div>
     `
     })
+
+    document.querySelectorAll('.recipe-card').forEach(recipeCard => {
+      recipeCard.addEventListener('click', () => {
+        viewRecipe(recipeCard.id)
+        
+      })
+    })
 }
 
-/*const viewRecipe = (data) => {
-    recipesSection.innerHTML = ''
+const viewRecipe = (recipeId) => {
 
-    recipesSection.innerHTML += `
-  <h1>${data.}
-  `
+  const CURRENT_RECIPE_API = `https://api.edamam.com/search?app_id=a528066f&app_key=ed096ed16c57eb7ed215b507030aae8c&r=${encodeURIComponent(recipeId)}`
 
-}*/
+  fetch(CURRENT_RECIPE_API)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+          const ingredients = data.ingredientLines
+          
+          console.log(ingredients)
+          
+        
+          recipePageHeader.innerHTML = `
+          <h1>${data[0].label}</h1>
+          <p>Cooking time: ${cookingTimeField.value}</p>
+          `
+          ingredients.forEach((ingredient) => {
+            recipeIngredients.innerHTML +=
+            `<li>${ingredient}</li>`
+          })
+          
+        
+        
+            console.log(data)
+        })
+
+
+
+}
 
 showResults()
 
 searchSection.addEventListener('change', showResults)
 searchSection.addEventListener('submit', (event) => showResults(event))
-recipesSection.addEventListener('click', viewRecipe(data))
+//recipesSection.addEventListener('click')
